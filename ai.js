@@ -35,27 +35,27 @@ getMaxRow = id =>{
 }
 
 getMax = id =>{
-	console.log(validateColumn(id),validateRow(id))
-	if (validateColumn(id) && validateRow(id)) {
+	if (getMaxColumn(id) == undefined && getMaxRow(id) != undefined) {
 		console.log("A");
-		if (values[getMaxRow(id)]>values[getMaxColumn(id)]) {
-			return ids[getMaxRow(id)]
-		}else{
-			return ids[getMaxColumn(id)]
-		}		
-	}else if (!validateColumn(id) && validateRow(id)) {
-		console.log("B");
 		return ids[getMaxRow(id)];
-	}else if (validateColumn(id) && !validateRow(id)) {
-		console.log("C");
+	}else if (getMaxColumn(id) != undefined && getMaxRow(id) == undefined) {
+		console.log("B");
 		return ids[getMaxColumn(id)];
-	}else if (!validateColumn(id) && !validateRow(id)) {
-		console.log("D");
+	}else if (getMaxColumn(id) == undefined && getMaxRow(id) == undefined) {
 		for (var i = 0; i < truthTable.length; i++) {
-		console.log(truthTable[i]);
 			if (truthTable[i]) {
-				return ids[i];				
+			console.log("C");
+				return ids[i];
 			}
+		}
+	}else{
+		console.log(values[getMaxColumn(id)],values[getMaxRow(id)])
+		if (values[getMaxRow(id)]> values[getMaxColumn(id)]) {
+			console.log("C");
+			return ids[getMaxRow(id)];
+		}else{
+			console.log("E");
+			return ids[getMaxColumn(id)];
 		}
 	}
 

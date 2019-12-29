@@ -125,14 +125,14 @@ play = id =>{
 		}
 	}
 	isPlayer=!isPlayer;
+	// console.log(getMax(current))
 	if (getLeft() !=0 && !isPlayer) {
 		computer(current);
 	}
 }
 
 computer = current =>{
-	console.log("COMPUTER");
-	// console.log(getMax(current));
+	console.log("COMPUTER ",values[getMax(current)]);
 	play(getMax(current));
 }
 
