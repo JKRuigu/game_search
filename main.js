@@ -123,7 +123,18 @@ play = id =>{
 		}
 	}
 	isPlayer=!isPlayer;
+	getMaxColumn(current);
+	// console.log(isPlayer,getMax(current));
+	// checkPlayer(isPlayer)
 }
+
+checkPlayer = bool =>{
+	if (!bool) {
+		console.log(getMax(current));
+		// play(getMax(current));
+	}
+}
+
 //GET BUTTON NUMBER AND ADJUST SCORE;
 setKey = (e)=>{
 	if (!validateColumn(current) && !validateRow(current) && getLeft() != 0) {
