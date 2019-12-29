@@ -70,6 +70,7 @@ validateRow = id =>{
 	id = Number(id);
 	var isTrue = false;
 	var data = getRow(id);
+	console.log(data);
 
 	for (var i = data[0]; i <data.length; i++) {
 		if (truthTable[j]) {
@@ -80,6 +81,7 @@ validateRow = id =>{
 
 	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
 }
+validateRow(current);
 
 // CHECKS WHEATHER THE COLUMN IS FULL;
 validateColumn = (id)=>{
@@ -123,16 +125,15 @@ play = id =>{
 		}
 	}
 	isPlayer=!isPlayer;
-	getMaxColumn(current);
-	// console.log(isPlayer,getMax(current));
-	// checkPlayer(isPlayer)
+	if (getLeft() !=0 && !isPlayer) {
+		computer(current);
+	}
 }
 
-checkPlayer = bool =>{
-	if (!bool) {
-		console.log(getMax(current));
-		// play(getMax(current));
-	}
+computer = current =>{
+	console.log("COMPUTER");
+	// console.log(getMax(current));
+	play(getMax(current));
 }
 
 //GET BUTTON NUMBER AND ADJUST SCORE;
