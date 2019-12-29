@@ -8,6 +8,14 @@ var row = 4;
 var column = 4;
 var left = column*row-1;
 
+// INTIALIZE GAME
+for (var i = 1; i <= row; i++) {
+	for (var j = 1; j <= column; j++) {
+		document.getElementById(String(i)+String(j)).innerHTML = Math.floor(Math.random()*9);
+	}
+}
+
+
 // CREATES THE TRUTHTABLE;
 for (var i = 0; i < column; i++) {
 	for (var j = 0; j < row; j++) {
