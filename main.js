@@ -19,6 +19,7 @@ setKey = (e)=>{
 
 			isPlayer?player1+=Number(value):player2+=Number(value);
 			isPlayer=!isPlayer;
+			current = Number(e.srcElement.id);
 			document.getElementById("player1").innerHTML = player1;
 			document.getElementById("player2").innerHTML = player2;
 		}
