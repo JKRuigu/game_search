@@ -2,7 +2,25 @@ var isPlayer = true;
 
 var player1 = 0;
 var player2 = 0;
-var current = 23;
+var current = 13;
+var truthTable = [];
+var row = 4;
+var column = 4;
+
+for (var i = 0; i < column; i++) {
+	for (var j = 0; j < row; j++) {
+		truthTable.push(true);
+	}		
+}
+if (Number(Number(String(current)[0])) !=1) {
+	truthTable[((Number(String(current)[0])-1)*column+Number(String(current)[1]))-1] = false;
+}else{
+	truthTable[(Number(String(current)[1]))-1] = false;
+}
+
+document.getElementById(current).innerHTML = "H"
+console.log(truthTable);
+
 
 // ROW AND COLUMN VALIDATION;
 validate = (id,current)=>{
