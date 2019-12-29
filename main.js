@@ -100,11 +100,17 @@ play = id =>{
 		document.getElementById(current).innerHTML ="P2";
 
 	}
-	isPlayer=!isPlayer;
 	// console.log(getLeft());
 	if (getLeft() == 0) {
-		console.log("GAME OVER")
+		let isDraw = player1 == player2? true:false;
+		let msg = player1>player2?"ONE":"TWO";
+		if (!isDraw) {
+			alert(`PLAYER ${msg} WON`);
+		}else{
+			alert(`GAME ENDED AS DRAW`);			
+		}
 	}
+	isPlayer=!isPlayer;
 }
 //GET BUTTON NUMBER AND ADJUST SCORE;
 setKey = (e)=>{
