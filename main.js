@@ -8,11 +8,14 @@ var row = 4;
 var column = 4;
 var left = column*row-1;
 
+// CREATES THE TRUTHTABLE;
 for (var i = 0; i < column; i++) {
 	for (var j = 0; j < row; j++) {
 		truthTable.push(true);
 	}		
 }
+
+// GETS THE INDEX NUMBER OF THE ID; MAX = column*row-1;
 getNumber = (id)=>{
 	if (Number(Number(String(id)[0])) !=1) {
 		return ((Number(String(id)[0])-1)*column+Number(String(id)[1]))-1;
@@ -23,8 +26,8 @@ getNumber = (id)=>{
 //DEACTIVATE THE CURRENT NUMBER;
 truthTable[getNumber(current)] = false;
 
+// MARKS OUT THE DEFAULT NUMBER IN THE GRID;
 document.getElementById(current).innerHTML = "X";
-
 
 // ROW AND COLUMN VALIDATION;
 validate = (id,current)=>{
@@ -35,6 +38,7 @@ validate = (id,current)=>{
 	}	
 }
 
+// GETS THE TOTAL UNSELECTED NUMBER IN THE GRID;
 getLeft = ()=>{
 	var n = 0;
 	for (var i = 0; i < truthTable.length; i++) {
@@ -86,21 +90,22 @@ validateColumn = (id)=>{
 	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
 }
 
+// GAME CONTROLLER;
 play = id =>{
 	let value = document.getElementById(id).innerHTML;
 
 	isPlayer?player1+=Number(value):player2+=Number(value);
 	truthTable[getNumber(id)] = false;
 	current = Number(id);
+	
 	if (isPlayer) {
 		document.getElementById("player1").innerHTML = player1;
 		document.getElementById(current).innerHTML ="P1";
 	}else{
 		document.getElementById("player2").innerHTML = player2;
 		document.getElementById(current).innerHTML ="P2";
-
 	}
-	// console.log(getLeft());
+
 	if (getLeft() == 0) {
 		let isDraw = player1 == player2? true:false;
 		let msg = player1>player2?"ONE":"TWO";
@@ -115,13 +120,10 @@ play = id =>{
 //GET BUTTON NUMBER AND ADJUST SCORE;
 setKey = (e)=>{
 	if (!validateColumn(current) && !validateRow(current) && getLeft() != 0) {
-			if (truthTable[getNumber(e.srcElement.id)]) {
-				console.log()
+		if (truthTable[getNumber(e.srcElement.id)]) {
 			console.log("FULL");
 			play(e.srcElement.id)
-			}
-		// if (validate(String(e.srcElement.id),String(current))) {
-		// }
+		}
 	}else{
 		if (e.srcElement.id != current) {
 			if (validate(String(e.srcElement.id),String(current))) {
