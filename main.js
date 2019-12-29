@@ -44,6 +44,7 @@ truthTable[getNumber(current)] = false;
 
 // MARKS OUT THE DEFAULT NUMBER IN THE GRID;
 document.getElementById(current).innerHTML = "X";
+// console.log(window)
 
 // ROW AND COLUMN VALIDATION;
 validate = (id,current)=>{
@@ -99,13 +100,21 @@ validateColumn = (id)=>{
 	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
 }
 
+addClass = (id,player) =>{
+	var element = document.getElementById(id);
+  	element.classList.add(player);
+
+}
+
 // GAME CONTROLLER;
 play = id =>{
 	let value = document.getElementById(id).innerHTML;
 
 	isPlayer?player1+=Number(value):player2+=Number(value);
 	truthTable[getNumber(id)] = false;
+	let player = isPlayer?"player1":"player2";
 	current = Number(id);
+	addClass(current,player);
 	
 	if (isPlayer) {
 		document.getElementById("player1").innerHTML = player1;
@@ -132,8 +141,10 @@ play = id =>{
 }
 
 computer = current =>{
-	console.log("COMPUTER ",values[getMax(current)]);
-	play(getMax(current));
+	let tempId = getMax(current);
+	console.log("COMPUTER ",tempId);
+	document.getElementById(tempId).class = "player1"
+	play(tempId);
 }
 
 //GET BUTTON NUMBER AND ADJUST SCORE;
