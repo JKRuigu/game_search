@@ -45,11 +45,12 @@ getLeft = ()=>{
 	return n;
 }
 
-validateRow = (num)=>{
-	num = Number(num);
+// CHECKS WHEATHER THE ROW IS FULL;
+validateRow = (id)=>{
+	id = Number(id);
 	var min  = 0;
 	var max = 0;
-	var numX = getNumber(num)+1;
+	var numX = getNumber(id)+1;
 	var isTrue = false;
 
 	for (var i = 0; i <=column*row; i+=row) {
@@ -69,37 +70,65 @@ validateRow = (num)=>{
 			}
 		}
 	}
-	return isTrue;
+	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
 }
 
-//GET BUTTON NUMBER AND ADJUST SCORE;
-setKey = (e)=>{
-	if (e.srcElement.id >=11 && e.srcElement.id <=99 /**&& e.srcElement.id != current **/) {
-		console.log(validateRow(e.srcElement.id));
-		if (validate(String(e.srcElement.id),String(current))) {
-			let value = document.getElementById(e.srcElement.id).innerHTML;
-
-			isPlayer?player1+=Number(value):player2+=Number(value);
-			truthTable[getNumber(e.srcElement.id)] = false;
-			current = Number(e.srcElement.id);
-			if (isPlayer) {
-				document.getElementById("player1").innerHTML = player1;
-				document.getElementById(current).innerHTML ="P1";
-			}else{
-				document.getElementById("player2").innerHTML = player2;
-				document.getElementById(current).innerHTML ="P2";
-
-			}
-			isPlayer=!isPlayer;
-			// console.log(getLeft());
-			if (getLeft() == 0) {
-				console.log("GAME OVER")
-			}
+// CHECKS WHEATHER THE COLUMN IS FULL;
+validateColumn = (id)=>{
+	id = Number(String(id)[1])-1;
+	isTrue = false;
+	for (var i = 0; i< column*row; i+=row) {
+		if (truthTable[i+id]) {
+			isTrue = true;
+			break;
 		}
 	}
+	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
+}
+
+play = id =>{
+	let value = document.getElementById(id).innerHTML;
+
+	isPlayer?player1+=Number(value):player2+=Number(value);
+	truthTable[getNumber(id)] = false;
+	current = Number(id);
+	if (isPlayer) {
+		document.getElementById("player1").innerHTML = player1;
+		document.getElementById(current).innerHTML ="P1";
+	}else{
+		document.getElementById("player2").innerHTML = player2;
+		document.getElementById(current).innerHTML ="P2";
+
+	}
+	isPlayer=!isPlayer;
+	// console.log(getLeft());
+	if (getLeft() == 0) {
+		console.log("GAME OVER")
+	}
+}
+//GET BUTTON NUMBER AND ADJUST SCORE;
+setKey = (e)=>{
+	if (!validateColumn(current) && !validateRow(current) && getLeft() != 0) {
+			console.log("FULL");
+		if (validate(String(e.srcElement.id),String(current))) {
+			// play(e.srcElement.id)
+		}
+	}else{
+		if (e.srcElement.id != current) {
+			if (validate(String(e.srcElement.id),String(current))) {
+				console.log("NORMAL");
+				play(e.srcElement.id)
+			}
+		}
+
+	}
+
 }
 
 // CAPTURE CLICK;
 document.addEventListener('click', function(e) {
-    setKey(e);
+	// CHECKS IF BUTTON IS CLICKED;
+	if (e.srcElement.id >=11 && e.srcElement.id <=44 && getLeft() != 0) {
+   	 setKey(e);
+	}
 });
