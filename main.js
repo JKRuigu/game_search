@@ -6,6 +6,7 @@ var current = 13;
 var truthTable = [];
 var row = 4;
 var column = 4;
+var left = column*row-1;
 
 for (var i = 0; i < column; i++) {
 	for (var j = 0; j < row; j++) {
@@ -34,6 +35,16 @@ validate = (id,current)=>{
 	}	
 }
 
+getLeft = ()=>{
+	var n = 0;
+	for (var i = 0; i < truthTable.length; i++) {
+		if (truthTable[i] == true) {
+			n++;
+		}
+	}
+	return n;
+}
+
 //GET BUTTON NUMBER AND ADJUST SCORE;
 setKey = (e)=>{
 	if (e.srcElement.id >=11 && e.srcElement.id <=99 && e.srcElement.id != current) {
@@ -44,9 +55,11 @@ setKey = (e)=>{
 			isPlayer=!isPlayer;
 			truthTable[getNumber(e.srcElement.id)] = false;
 			current = Number(e.srcElement.id);
-			console.log(document);
 			document.getElementById("player1").innerHTML = player1;
 			document.getElementById("player2").innerHTML = player2;
+			if (getLeft == 0) {
+				console.log("GAME OVER")
+			}
 		}
 	}
 }
