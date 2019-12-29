@@ -9,6 +9,7 @@ var ids = [];
 var row = 4;
 var column = 4;
 var left = column*row-1;
+var lastPos;
 
 // INTIALIZE GAME
 for (var i = 1; i <= row; i++) {
@@ -103,7 +104,16 @@ validateColumn = (id)=>{
 addClass = (id,player) =>{
 	var element = document.getElementById(id);
   	element.classList.add(player);
+}
 
+addClass2 = id =>{
+	var element = document.getElementById(id);
+  	element.classList.add("current");
+}
+
+addClass3 = id =>{
+	var element = document.getElementById(id);
+  	element.classList.add("current2");
 }
 
 // GAME CONTROLLER;
@@ -113,8 +123,20 @@ play = id =>{
 	isPlayer?player1+=Number(value):player2+=Number(value);
 	truthTable[getNumber(id)] = false;
 	let player = isPlayer?"player1":"player2";
+	if (lastPos) {
+		addClass3(current)
+	}else{
+		addClass3(current)
+	}
+
+	lastPos = current;
 	current = Number(id);
 	addClass(current,player);
+	addClass2(id);
+	// if (isPlayer) {
+
+	// }
+
 	
 	if (isPlayer) {
 		document.getElementById("player1").innerHTML = player1;
@@ -145,6 +167,7 @@ computer = current =>{
 	console.log("COMPUTER ",tempId);
 	document.getElementById(tempId).class = "player1"
 	play(tempId);
+	// addClass("player2",player);
 }
 
 //GET BUTTON NUMBER AND ADJUST SCORE;
