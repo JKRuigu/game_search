@@ -4,6 +4,8 @@ var player1 = 0;
 var player2 = 0;
 var current = 23;
 var truthTable = [];
+var values = [];
+var ids = [];
 var row = 4;
 var column = 4;
 var left = column*row-1;
@@ -15,7 +17,8 @@ for (var i = 1; i <= row; i++) {
 		while(ran == 0){
 			ran = Math.floor(Math.random()*9);
 		}
-
+		ids.push(String(i)+String(j));
+		values.push(ran);
 		document.getElementById(String(i)+String(j)).innerHTML = ran;
 	}
 }
@@ -93,8 +96,6 @@ validateColumn = (id)=>{
 
 	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
 }
-
-console.log(validateColumn(current));
 
 // GAME CONTROLLER;
 play = id =>{
