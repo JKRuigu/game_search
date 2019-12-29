@@ -11,7 +11,12 @@ var left = column*row-1;
 // INTIALIZE GAME
 for (var i = 1; i <= row; i++) {
 	for (var j = 1; j <= column; j++) {
-		document.getElementById(String(i)+String(j)).innerHTML = Math.floor(Math.random()*9);
+		let ran = Math.floor(Math.random()*9);
+		while(ran == 0){
+			ran = Math.floor(Math.random()*9);
+		}
+
+		document.getElementById(String(i)+String(j)).innerHTML = ran;
 	}
 }
 
