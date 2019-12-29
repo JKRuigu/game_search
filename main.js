@@ -22,7 +22,7 @@ getNumber = (id)=>{
 //DEACTIVATE THE CURRENT NUMBER;
 truthTable[getNumber(current)] = false;
 
-document.getElementById(current).innerHTML = "H";
+document.getElementById(current).innerHTML = "X";
 
 
 // ROW AND COLUMN VALIDATION;
@@ -44,7 +44,7 @@ setKey = (e)=>{
 			isPlayer=!isPlayer;
 			truthTable[getNumber(e.srcElement.id)] = false;
 			current = Number(e.srcElement.id);
-			console.log(truthTable);
+			console.log(document);
 			document.getElementById("player1").innerHTML = player1;
 			document.getElementById("player2").innerHTML = player2;
 		}
