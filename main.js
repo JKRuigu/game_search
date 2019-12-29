@@ -50,30 +50,18 @@ getLeft = ()=>{
 }
 
 // CHECKS WHEATHER THE ROW IS FULL;
-validateRow = (id)=>{
+validateRow = id =>{
 	id = Number(id);
-	var min  = 0;
-	var max = 0;
-	var numX = getNumber(id)+1;
 	var isTrue = false;
+	var data = getRow(id);
 
-	for (var i = 0; i <=column*row; i+=row) {
-		if (i !=0) {
-			min = max;
-			max = i;
-
-			if (numX >min && numX<=max) {
-				min = min==0?0:min;
-				for (var j = min; j < max; j++) {
-					if (truthTable[j]) {
-						isTrue = true;
-						break;
-					}
-				}
-				break;
-			}
+	for (var i = data[0]; i <data.length; i++) {
+		if (truthTable[j]) {
+			isTrue = true;
+			break;
 		}
 	}
+
 	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
 }
 
@@ -81,14 +69,19 @@ validateRow = (id)=>{
 validateColumn = (id)=>{
 	id = Number(String(id)[1])-1;
 	isTrue = false;
-	for (var i = 0; i< column*row; i+=row) {
-		if (truthTable[i+id]) {
+	let data = getColumn(id);
+
+	for (var i = data[0]; i< data.length; i++) {
+		if (truthTable[i]) {
 			isTrue = true;
 			break;
 		}
 	}
+
 	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
 }
+
+console.log(validateColumn(current));
 
 // GAME CONTROLLER;
 play = id =>{
