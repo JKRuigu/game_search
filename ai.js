@@ -16,20 +16,22 @@ getMaxColumn = id =>{
 	return indexMax;
 }
 
-getMaxColumn(current);
-
 getMaxRow = id =>{
 	let data = getRow(Number(id));
-	let max = values[data[0]];
-	let index = data[0];
+	let max = 0;
+	let index;
+	let indexMax;
 	
 	for (var i = 0; i < data.length; i++) {
-		if (values[data[i]]>max && truthTable[data[i]]) {
-			max = values[data[i]];
-			index = data[i];
+		index = data[i];
+		if (truthTable[data[i]]) {
+			if (values[data[i]]>max) {
+				max = values[data[i]];
+				indexMax = data[i];
+			}
 		}
 	}
-	return index;
+	return indexMax;
 }
 
 getMax = id =>{
