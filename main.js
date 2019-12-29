@@ -109,10 +109,13 @@ play = id =>{
 //GET BUTTON NUMBER AND ADJUST SCORE;
 setKey = (e)=>{
 	if (!validateColumn(current) && !validateRow(current) && getLeft() != 0) {
+			if (truthTable[getNumber(e.srcElement.id)]) {
+				console.log()
 			console.log("FULL");
-		if (validate(String(e.srcElement.id),String(current))) {
-			// play(e.srcElement.id)
-		}
+			play(e.srcElement.id)
+			}
+		// if (validate(String(e.srcElement.id),String(current))) {
+		// }
 	}else{
 		if (e.srcElement.id != current) {
 			if (validate(String(e.srcElement.id),String(current))) {
