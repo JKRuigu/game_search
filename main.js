@@ -12,20 +12,25 @@ for (var i = 0; i < column; i++) {
 		truthTable.push(true);
 	}		
 }
-if (Number(Number(String(current)[0])) !=1) {
-	truthTable[((Number(String(current)[0])-1)*column+Number(String(current)[1]))-1] = false;
-}else{
-	truthTable[(Number(String(current)[1]))-1] = false;
-}
+getNumber = (id)=>{
+	if (Number(Number(String(id)[0])) !=1) {
+		return ((Number(String(id)[0])-1)*column+Number(String(id)[1]))-1;
+	}
+	return (Number(String(id)[1]))-1;
+} 
 
-document.getElementById(current).innerHTML = "H"
-console.log(truthTable);
+//DEACTIVATE THE CURRENT NUMBER;
+truthTable[getNumber(current)] = false;
+
+document.getElementById(current).innerHTML = "H";
 
 
 // ROW AND COLUMN VALIDATION;
 validate = (id,current)=>{
 	if (id[0] == current[0] || id[1] == current[1]) {
-		return true;
+		if (truthTable[getNumber(id)]) {
+			return true;
+		}
 	}	
 }
 
@@ -37,7 +42,9 @@ setKey = (e)=>{
 
 			isPlayer?player1+=Number(value):player2+=Number(value);
 			isPlayer=!isPlayer;
+			truthTable[getNumber(e.srcElement.id)] = false;
 			current = Number(e.srcElement.id);
+			console.log(truthTable);
 			document.getElementById("player1").innerHTML = player1;
 			document.getElementById("player2").innerHTML = player2;
 		}
