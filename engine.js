@@ -27,10 +27,17 @@ play = id =>{
 		document.getElementById("player2").innerHTML = player2;
 		document.getElementById(current).innerHTML ="P2";
 	}
+			console.log(localStorage.score)
 
 	if (getLeft() == 0) {
 		let isDraw = player1 == player2? true:false;
 		let msg = player1>player2?"ONE":"TWO";
+		let sc = player1>player2?player1:player2;
+		localStorage.score = localStorage.score==undefined?0:Number(localStorage.score);
+		if( Number(localStorage.score) <sc ){
+			alert(`HIGHEST SCORE! ${sc}`);
+			localStorage.score = Number(sc);
+		}
 		if (!isDraw) {
 			mariodie.play()
 			alert(`PLAYER ${msg} WON`);

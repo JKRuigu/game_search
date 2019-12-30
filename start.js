@@ -20,3 +20,5 @@ initialize = (current,row,column,values=[],ids=[],truthTable=[])=>{
 	}
 
 }
+
+document.getElementById("highest").innerHTML = localStorage.score==undefined?0:Number(localStorage.score);;
