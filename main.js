@@ -2,37 +2,55 @@ var isPlayer = true;
 
 var player1 = 0;
 var player2 = 0;
-var current = 23;
+var current =0;
 var truthTable = [];
 var values = [];
 var ids = [];
-var row = 6;
-var column = 6;
+var row = 7;
+var column = 7;
 var left = column*row-1;
 var lastPos;
 var coin = document.getElementById('coin');
 var mariodie = document.getElementById('mariodie');
 
-// INTIALIZE GAME
-for (var i = 1; i <= row; i++) {
-	for (var j = 1; j <= column; j++) {
-		let ran = Math.floor(Math.random()*9);
-		while(ran == 0){
-			ran = Math.floor(Math.random()*9);
+initialize = (current,row,column,values=[],ids=[],truthTable=[])=>{
+	// INTIALIZE GAME
+	for (var i = 1; i <= row; i++) {
+		for (var j = 1; j <= column; j++) {
+			let ran = Math.floor(Math.random()*row);
+			while(ran == 0){
+				ran = Math.floor(Math.random()*row);
+			}
+			ids.push(String(i)+String(j));
+			values.push(ran);
+			document.getElementById(String(i)+String(j)).innerHTML = ran;
 		}
-		ids.push(String(i)+String(j));
-		values.push(ran);
-		document.getElementById(String(i)+String(j)).innerHTML = ran;
 	}
+
+	// CREATES THE TRUTHTABLE;
+	for (var i = 0; i < column; i++) {
+		for (var j = 0; j < row; j++) {
+			truthTable.push(true);
+		}		
+	}
+
 }
 
+initialize(current,row,column,values,ids,truthTable);
 
-// CREATES THE TRUTHTABLE;
-for (var i = 0; i < column; i++) {
-	for (var j = 0; j < row; j++) {
-		truthTable.push(true);
-	}		
-}
+// SET CURRENT POSITION;
+current = Math.floor(Math.random()*(column*row));
+current = current==0?23:current;
+//DEACTIVATE THE CURRENT NUMBER;
+truthTable[current] = false;
+// CONVERT TO ID;
+current = ids[current];
+
+// MARKS OUT THE DEFAULT NUMBER IN THE GRID;
+document.getElementById(current).innerHTML = "X";
+
+// MARK POSITION;
+addClass2(current);
 
 // GETS THE INDEX NUMBER OF THE ID; MAX = column*row-1;
 getNumber = (id)=>{
@@ -42,11 +60,6 @@ getNumber = (id)=>{
 	return (Number(String(id)[1]))-1;
 } 
 
-//DEACTIVATE THE CURRENT NUMBER;
-truthTable[getNumber(current)] = false;
-
-// MARKS OUT THE DEFAULT NUMBER IN THE GRID;
-document.getElementById(current).innerHTML = "X";
 // console.log(window)
 
 // ROW AND COLUMN VALIDATION;
@@ -76,7 +89,7 @@ validateRow = id =>{
 	var data = getRow(id);
 
 	for (var i = data[0]; i <data.length; i++) {
-		if (truthTable[j]) {
+		if (truthTable[i]) {
 			isTrue = true;
 			break;
 		}
@@ -102,21 +115,6 @@ validateColumn = (id)=>{
 	return isTrue;//RETURNS TRUE IS ROW IS NOT FULL;
 }
 
-addClass = (id,player) =>{
-	var element = document.getElementById(id);
-  	element.classList.add(player);
-}
-
-addClass2 = id =>{
-	var element = document.getElementById(id);
-  	element.classList.add("current");
-}
-
-addClass3 = id =>{
-	var element = document.getElementById(id);
-  	element.classList.add("current2");
-}
-
 // GAME CONTROLLER;
 play = id =>{
 	let value = document.getElementById(id).innerHTML;
@@ -137,11 +135,7 @@ play = id =>{
 	current = Number(id);
 	addClass(current,player);
 	addClass2(id);
-	// if (isPlayer) {
 
-	// }
-
-	
 	if (isPlayer) {
 		document.getElementById("player1").innerHTML = player1;
 		document.getElementById(current).innerHTML ="P1";
@@ -159,6 +153,7 @@ play = id =>{
 		}else{
 			alert(`GAME ENDED AS DRAW`);			
 		}
+		initialize(current,row,column,values,ids,truthTable);
 	}
 	isPlayer=!isPlayer;
 	if (getLeft() !=0 && !isPlayer) {
