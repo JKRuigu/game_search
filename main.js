@@ -6,8 +6,8 @@ var current = 23;
 var truthTable = [];
 var values = [];
 var ids = [];
-var row = 4;
-var column = 4;
+var row = 6;
+var column = 6;
 var left = column*row-1;
 var lastPos;
 var coin = document.getElementById('coin');
@@ -161,18 +161,18 @@ play = id =>{
 		}
 	}
 	isPlayer=!isPlayer;
-	// console.log(getMax(current))
 	if (getLeft() !=0 && !isPlayer) {
 		computer(current);
 	}
 }
 
 computer = current =>{
-	let tempId = getMax(current);
-	console.log("COMPUTER ",tempId);
-	document.getElementById(tempId).class = "player1"
-	play(tempId);
-	// addClass("player2",player);
+	// setTimeout(()=>{
+		let tempId = getMax(current);
+		console.log("COMPUTER ",tempId);
+		document.getElementById(tempId).class = "player1"
+		play(tempId);
+	// },2000)
 }
 
 //GET BUTTON NUMBER AND ADJUST SCORE;
@@ -197,7 +197,7 @@ setKey = (e)=>{
 // CAPTURE CLICK;
 document.addEventListener('click', function(e) {
 	// CHECKS IF BUTTON IS CLICKED;
-	if (e.target.id >=11 && e.target.id <=44 && getLeft() != 0) {
+	if (e.target.id >=11 && e.target.id <=77 && getLeft() != 0) {
    	 setKey(e);
 	}
 });

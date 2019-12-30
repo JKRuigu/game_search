@@ -34,40 +34,117 @@
       	.current2{
       		border: solid 1px #fff;
       	}
+      	#main{
+      		margin-top: -150px; 
+      		flex-direction: row;  
+      	}
+      	#container{
+      		margin-left: 550px;
+      		/*display: inline-flex;*/
+      		border: solid 1px #c09407;
+      		padding: 2px;
+      		max-width: 430px;
+      	}
+      	#player{
+      		font-size: 25px;
+      	}
+
 
     </style>
 <body>
 <section>
 		<audio id="coin" src="coin.wav" class="hide"></audio>
 		<audio id="mariodie" src="mariodie.wav" class="hide"></audio>
-	<p>PLAYER 1</p>
-	<p>SCORE <span id="player1">0</span></p>
-	<p>
-		<button id="11">8</button>
-		<button id="12">7</button>
-		<button id="13">9</button>
-		<button id="14">5</button>
-	</p>
-	<p>
-		<button id="21">8</button>
-		<button id="22">7</button>
-		<button class="current" id="23">1</button>
-		<button id="24">5</button>
-	</p>
-	<p>
-		<button id="31">8</button>
-		<button id="32">7</button>
-		<button id="33">9</button>
-		<button id="34">5</button>
-	</p>
-	<p>
-		<button id="41">8</button>
-		<button id="42">7</button>
-		<button id="43">9</button>
-		<button id="44">5</button>
-	</p>
-	<p>PLAYER 2</p>
-	<p>SCORE <span id="player2">0</span></p>
+		<div id="container">
+			<p id="player">PLAYER 1
+				<span id="score">SCORE <span id="player1">0</span></span>	
+			</p>
+			<p id="player">PLAYER 2
+				<span id="score">SCORE <span id="player2">0</span></span>
+			</p>		
+		</div>
+	<div id="main">
+		<p>
+			<button id="11">8</button>
+			<button id="12">7</button>
+			<button id="13">9</button>
+			<button id="14">5</button>
+			<button id="15">5</button>
+			<button id="16">5</button>
+			<button id="17">5</button>
+			<!-- <button id="18">5</button> -->
+		</p>
+		<p>
+			<button id="21">8</button>
+			<button id="22">7</button>
+			<button class="current" id="23">1</button>
+			<button id="24">5</button>
+			<button id="25">5</button>
+			<button id="26">5</button>
+			<button id="27">5</button>
+			<!-- <button id="28">5</button> -->
+		</p>
+		<p>
+			<button id="31">8</button>
+			<button id="32">7</button>
+			<button id="33">9</button>
+			<button id="34">5</button>
+			<button id="35">5</button>
+			<button id="36">5</button>
+			<button id="37">5</button>
+			<!-- <button id="38">5</button> -->
+		</p>
+		<p>
+			<button id="41">8</button>
+			<button id="42">7</button>
+			<button id="43">9</button>
+			<button id="44">5</button>
+			<button id="45">5</button>
+			<button id="46">5</button>
+			<button id="47">5</button>
+			<!-- <button id="48">5</button> -->
+		</p>
+		<p>
+			<button id="51">8</button>
+			<button id="52">7</button>
+			<button id="53">9</button>
+			<button id="54">5</button>
+			<button id="55">5</button>
+			<button id="56">5</button>
+			<button id="57">5</button>
+			<!-- <button id="58">5</button> -->
+		</p>
+		<p>
+			<button id="61">8</button>
+			<button id="62">7</button>
+			<button id="63">9</button>
+			<button id="64">5</button>
+			<button id="65">5</button>
+			<button id="66">5</button>
+			<button id="67">5</button>
+			<!-- <button id="68">5</button> -->
+		</p>
+		<p>
+			<button id="71">8</button>
+			<button id="72">7</button>
+			<button id="73">9</button>
+			<button id="74">5</button>
+			<button id="75">5</button>
+			<button id="76">5</button>
+			<button id="77">5</button>
+			<!-- <button id="78">5</button> -->
+		</p>
+		<!-- <p>
+			<button id="81">8</button>
+			<button id="82">7</button>
+			<button id="83">9</button>
+			<button id="84">5</button>
+			<button id="85">5</button>
+			<button id="86">5</button>
+			<button id="87">5</button>
+			<button id="88">5</button>
+		</p>		 -->
+	</div>
 </section>
 </body>
 	<script type="text/javascript" src="./getData.js"></script>
