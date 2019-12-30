@@ -10,13 +10,8 @@ var row = 4;
 var column = 4;
 var left = column*row-1;
 var lastPos;
-
-var audio = document.getElementById('myaudio');
-	// console.log(audio.onload())
-audio.play()
-
-// var audio = new Audio('coin.wav');
-// audio.play();
+var coin = document.getElementById('coin');
+var mariodie = document.getElementById('mariodie');
 
 // INTIALIZE GAME
 for (var i = 1; i <= row; i++) {
@@ -79,7 +74,6 @@ validateRow = id =>{
 	id = Number(id);
 	var isTrue = false;
 	var data = getRow(id);
-	console.log(data);
 
 	for (var i = data[0]; i <data.length; i++) {
 		if (truthTable[j]) {
@@ -135,6 +129,9 @@ play = id =>{
 	}else{
 		addClass3(current)
 	}
+	if (isPlayer) {
+		coin.play();
+	}
 
 	lastPos = current;
 	current = Number(id);
@@ -157,6 +154,7 @@ play = id =>{
 		let isDraw = player1 == player2? true:false;
 		let msg = player1>player2?"ONE":"TWO";
 		if (!isDraw) {
+			mariodie.play()
 			alert(`PLAYER ${msg} WON`);
 		}else{
 			alert(`GAME ENDED AS DRAW`);			
