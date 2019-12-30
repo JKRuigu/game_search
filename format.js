@@ -1,14 +1,11 @@
 addClass = (id,player) =>{
-	var element = document.getElementById(id);
-  	element.classList.add(player);
+	document.getElementById(id).classList.add(player);
 }
 
 addClass2 = id =>{
-	var element = document.getElementById(id);
-  	element.classList.add("current");
+ 	document.getElementById(id).classList.add("current");
 }
 
 addClass3 = id =>{
-	var element = document.getElementById(id);
-  	element.classList.add("current2");
+	document.getElementById(id).classList.add("current2");
 }

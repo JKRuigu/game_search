@@ -15,13 +15,16 @@ var mariodie = document.getElementById('mariodie');
 
 initialize(current,row,column,values,ids,truthTable);
 
-// SET CURRENT POSITION;
-current = Math.floor(Math.random()*(column*row));
-current = current==0?23:current;
-//DEACTIVATE THE CURRENT NUMBER;
-truthTable[current] = false;
-// CONVERT TO ID;
-current = ids[current];
+function fX() {
+	// SET CURRENT POSITION;
+	current = Math.floor(Math.random()*(column*row));
+	current = current==0?23:current;
+	//DEACTIVATE THE CURRENT NUMBER;
+	truthTable[current] = false;
+	// CONVERT TO ID;
+	current = ids[current];
+}
+fX();
 
 // MARKS OUT THE DEFAULT NUMBER IN THE GRID;
 document.getElementById(current).innerHTML = "X";
@@ -47,3 +50,5 @@ getLeft = ()=>{
 	}
 	return n;
 }
+
+document.getElementById("left").innerHTML = getLeft();
