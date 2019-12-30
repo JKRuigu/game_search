@@ -11,6 +11,13 @@ var column = 4;
 var left = column*row-1;
 var lastPos;
 
+var audio = document.getElementById('myaudio');
+	// console.log(audio.onload())
+audio.play()
+
+// var audio = new Audio('coin.wav');
+// audio.play();
+
 // INTIALIZE GAME
 for (var i = 1; i <= row; i++) {
 	for (var j = 1; j <= column; j++) {
@@ -173,15 +180,15 @@ computer = current =>{
 //GET BUTTON NUMBER AND ADJUST SCORE;
 setKey = (e)=>{
 	if (!validateColumn(current) && !validateRow(current) && getLeft() != 0) {
-		if (truthTable[getNumber(e.srcElement.id)]) {
+		if (truthTable[getNumber(e.target.id)]) {
 			console.log("FULL");
-			play(e.srcElement.id)
+			play(e.target.id)
 		}
 	}else{
-		if (e.srcElement.id != current) {
-			if (validate(String(e.srcElement.id),String(current))) {
+		if (e.target.id != current) {
+			if (validate(String(e.target.id),String(current))) {
 				console.log("NORMAL");
-				play(e.srcElement.id)
+				play(e.target.id)
 			}
 		}
 
@@ -192,7 +199,7 @@ setKey = (e)=>{
 // CAPTURE CLICK;
 document.addEventListener('click', function(e) {
 	// CHECKS IF BUTTON IS CLICKED;
-	if (e.srcElement.id >=11 && e.srcElement.id <=44 && getLeft() != 0) {
+	if (e.target.id >=11 && e.target.id <=44 && getLeft() != 0) {
    	 setKey(e);
 	}
 });
