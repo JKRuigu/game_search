@@ -10,7 +10,7 @@ play = id =>{
 	}else{
 		addClass3(current)
 	}
-	if (isPlayer) {
+	if (isPlayer && isSound) {
 		coin.play();
 	}
 
@@ -38,7 +38,7 @@ play = id =>{
 			localStorage.score = Number(sc);
 		}
 		if (!isDraw) {
-			mariodie.play()
+			isSound?mariodie.play():"";
 			alert(`PLAYER ${msg} WON`);
 		}else{
 			alert(`GAME ENDED AS DRAW`);			

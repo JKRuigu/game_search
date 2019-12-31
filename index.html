@@ -35,7 +35,7 @@
       		border: solid 1px #fff;
       	}
       	#main{
-      		margin-top: -195px; 
+      		margin-top: -270px; 
       		flex-direction: row;  
       	}
       	#container{
@@ -47,6 +47,18 @@
       	}
       	#player{
       		font-size: 25px;
+      	}
+      	.human{
+      		background: blue;	
+      	}
+      	.computer{
+      		background: #00bcd4;
+      	}
+      	.soundOn{
+      		background: orange;
+      	}
+      	.soundOff{
+      		background: red;
       	}
 
 
@@ -64,7 +76,8 @@
 			</p>
 			<p>HIGHEST SCORE <span id="highest">0</span></p>		
 			<p>Left <span id="left">0</span></p>
-			<button id="switch" onclick="toggle()">COMPUTER</button>		
+			<button id="switch" class="computer" onclick="toggle()">COMPUTER</button>		
+			<button id="sound" class="soundOff" onclick="sound()">SOUND OFF</button>		
 		</div>
 	<div id="main">
 		<p>

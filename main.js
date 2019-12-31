@@ -13,6 +13,7 @@ var lastPos;
 var coin = document.getElementById('coin');
 var mariodie = document.getElementById('mariodie');
 var isAI = true;
+var isSound = false;
 
 initialize(current,row,column,values,ids,truthTable);
 
@@ -29,9 +30,16 @@ fX();
 
 function toggle() {
 	isAI = !isAI;
+	toggleBtn(isAI);
 	document.getElementById("switch").innerHTML =isAI?"COMPUTER":"HUMAN";
 }
 
+function sound() {
+	isSound = !isSound;
+	soundBtn(isSound);
+	isSound?coin.play():"";
+	document.getElementById("sound").innerHTML =isSound?"SOUND ON":"SOUND OFF";	
+}
 // MARKS OUT THE DEFAULT NUMBER IN THE GRID;
 document.getElementById(current).innerHTML = "X";
 
