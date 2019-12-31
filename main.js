@@ -12,6 +12,7 @@ var left = column*row-1;
 var lastPos;
 var coin = document.getElementById('coin');
 var mariodie = document.getElementById('mariodie');
+var isAI = true;
 
 initialize(current,row,column,values,ids,truthTable);
 
@@ -25,6 +26,11 @@ function fX() {
 	current = ids[current];
 }
 fX();
+
+function toggle() {
+	isAI = !isAI;
+	document.getElementById("switch").innerHTML =isAI?"COMPUTER":"HUMAN";
+}
 
 // MARKS OUT THE DEFAULT NUMBER IN THE GRID;
 document.getElementById(current).innerHTML = "X";

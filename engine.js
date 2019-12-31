@@ -27,7 +27,6 @@ play = id =>{
 		document.getElementById("player2").innerHTML = player2;
 		document.getElementById(current).innerHTML ="P2";
 	}
-			console.log(localStorage.score)
 
 	if (getLeft() == 0) {
 		let isDraw = player1 == player2? true:false;
@@ -48,7 +47,7 @@ play = id =>{
 		// fX();
 	}
 	isPlayer=!isPlayer;
-	if (getLeft() !=0 && !isPlayer) {
+	if (getLeft() !=0 && !isPlayer && isAI) {
 		computer(current);
 	}
 }
