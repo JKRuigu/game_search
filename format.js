@@ -3,6 +3,7 @@ addClass = (id,player) =>{
 }
 
 addClass2 = id =>{
+	console.log("isAi");
  	document.getElementById(id).classList.add("current");
 }
 

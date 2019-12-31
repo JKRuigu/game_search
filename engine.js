@@ -10,7 +10,7 @@ play = id =>{
 	}else{
 		addClass3(current)
 	}
-	if (isPlayer && isSound) {
+	if (isSound) {
 		coin.play();
 	}
 
