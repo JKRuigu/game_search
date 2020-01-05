@@ -91,13 +91,13 @@ window.onload=function () {
 		}
 		if (getLeft() !=0 && !isPlayer && isAI) {
 			if (aiLevel == 0) {
-				computer2(current,selected);
+				computer(current,selected);
 			}else if (aiLevel == 1) {
 				computer2(current,selected);
 			}else if (aiLevel == 2) {
-				computer2(current,selected);
+				computer3(current,selected);
 			}else{
-				computer2(current,selected);
+				computer(current,selected);
 			}
 		}
 		if (getLeft() ==0) {
