@@ -4,6 +4,7 @@ var player1 = 0;
 var player2 = 0;
 var current =0;
 var truthTable = [];
+var truthTable2 = [];
 var values = [];
 var ids = [];
 var row = 7;
@@ -23,6 +24,7 @@ function fX() {
 	current = current==0?23:current;
 	//DEACTIVATE THE CURRENT NUMBER;
 	truthTable[current] = false;
+	truthTable2[current] = false;
 	// CONVERT TO ID;
 	current = ids[current];
 }

@@ -13,28 +13,21 @@ initialize = (current,row,column,values=[],ids=[],truthTable=[])=>{
 	  return list;
 	}
 
-	// console.log();
-
 	// INTIALIZE GAME
 	for (var i = 1; i <= row; i++) {
 		let list = shuffleWords(num);
 		for (var j = 1; j <= column; j++) {
-			// let ran = Math.floor(Math.random()*row);
-			// while(ran == 0){
-			// 	ran = Math.floor(Math.random()*row);
-			// }
-			console.log(list[j-1]);
 			ids.push(String(i)+String(j));
 			values.push(list[j-1]);
 			document.getElementById(String(i)+String(j)).innerHTML = list[j-1];
 		}
-		console.log(list);
 	}
 
 	// CREATES THE TRUTHTABLE;
 	for (var i = 0; i < column; i++) {
 		for (var j = 0; j < row; j++) {
 			truthTable.push(true);
+			truthTable2.push(true);
 		}		
 	}
 

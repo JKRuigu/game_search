@@ -57,13 +57,24 @@ play = id =>{
 	if (getLeft() !=0 && !isPlayer && isAI) {
 		computer(current);
 	}
+
+	if (getLeft() !=0 && isPlayer) {
+		computer2(current);
+	}
 }
 
+window.onload=function () {
+	console.log("A1");
+	play(ids[getChoice(current,truthTable,truthTable2)]);
+}
 computer = current =>{
-	// setTimeout(()=>{
-		let tempId = getMax(current);
-		console.log("COMPUTER ",tempId);
+		let tempId = getMax(current,truthTable);
+		console.log("A0");
 		document.getElementById(tempId).class = "player1"
 		play(tempId);
-	// },2000)
+}
+
+computer2 = current =>{
+	console.log("A1");
+	play(ids[getChoice(current,truthTable,truthTable2)]);
 }
