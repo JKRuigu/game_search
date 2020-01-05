@@ -27,15 +27,12 @@ initialize = (current,row,column,values=[],ids=[],truthTable=[])=>{
 		}
 	}
 
-	// CREATES THE TRUTHTABLE;
 	for (var i = 0; i < column; i++) {
 		for (var j = 0; j < row; j++) {
 			truthTable.push(true);
-			truthTable2.push(true);
-			truthTable3.push(true);
 		}		
 	}
-
 }
+
 
 document.getElementById("highest").innerHTML = localStorage.score==undefined?0:Number(localStorage.score);;

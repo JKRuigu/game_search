@@ -4,6 +4,7 @@ if (id) {
 	let value = document.getElementById(id).innerHTML;
 	isPlayer?player1+=Number(value):player2+=Number(value);
 	truthTable[getNumber(id)] = false;
+	selected.push(getNumber(id));
 	let player = isPlayer?"player1":"player2";
 	if (lastPos) {
 		addClass3(current)
@@ -34,6 +35,8 @@ if (id) {
 			document.getElementById("highest").innerHTML = sc2;
 	}
 
+	truthTable = check(column,row,selected);
+
 	if (getLeft() == 0) {
 		let isDraw = player1 == player2? true:false;
 		let msg = player1>player2?"ONE":"TWO";
@@ -63,11 +66,10 @@ computer = current =>{
 		play(tempId);
 }
 
-computer2 = (current,truthTable,truthTable2) =>{
+computer2 = (current,selected) =>{
 	console.log("A1");
-
-	truthTable3[getNumber(current)] = false;
-	let id = ids[getChoice(current,truthTable,truthTable2)];
+	let id = ids[getChoice(current,selected,row,column)];
+	console.log(id);
 	if (id) {
 		play(id);
 	}else{
@@ -82,26 +84,25 @@ computer3 = current=>{
 
 window.onload=function () {
 	var myT = setInterval(()=>{
-		truthTable3[getNumber(current)] = false;
-		// if (getLeft() !=0 && isPlayer && isAI) {
-		// 	// computer(current);
-		// 	// computer2(current,truthTable,truthTable2);
-		// 	computer3(current);
-		// }
+		console.log(selected.length);
+		// truthTable = check(column,row,selected);
+		if (getLeft() !=0 && isPlayer && isAI) {
+			computer(current);
+		}
 		if (getLeft() !=0 && !isPlayer && isAI) {
 			if (aiLevel == 0) {
-				computer3(current);
+				computer2(current,selected);
 			}else if (aiLevel == 1) {
-				computer(current);
+				computer2(current,selected);
 			}else if (aiLevel == 2) {
-				computer(current);
+				computer2(current,selected);
 			}else{
-				computer3(current);
+				computer2(current,selected);
 			}
 		}
 		if (isError) {
 			console.log("clearInterval");
 			clearInterval(myT);
 		}
-	},500);
+	},1000);
 }

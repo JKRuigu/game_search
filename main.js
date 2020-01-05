@@ -6,6 +6,7 @@ var current =0;
 var truthTable = [];
 var truthTable2 = [];
 var truthTable3 = [];
+var selected = [];
 var values = [];
 var ids = [];
 var row = 7;
@@ -14,7 +15,7 @@ var left = column*row-1;
 var lastPos;
 var coin = document.getElementById('coin');
 var mariodie = document.getElementById('mariodie');
-var isAI = false;
+var isAI = true;
 var aiLevel = 0;
 var isSound = false;
 var isError = false;
@@ -30,6 +31,7 @@ function fX() {
 	truthTable2[current] = false;
 	truthTable3[current] = false;
 	// CONVERT TO ID;
+	selected.push(current);
 	current = ids[current];
 }
 fX();
