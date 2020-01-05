@@ -15,7 +15,7 @@ var left = column*row-1;
 var lastPos;
 var coin = document.getElementById('coin');
 var mariodie = document.getElementById('mariodie');
-var isAI = true;
+var isAI = false;
 var aiLevel = 0;
 var isSound = false;
 var isError = false;
