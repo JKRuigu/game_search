@@ -17,6 +17,7 @@ if (id) {
 
 	lastPos = current;
 	current = Number(id);	
+	truthTable = check(column,row,selected);
 	document.getElementById("left").innerHTML = getLeft();
 	addClass(current,player);
 	addClass2(id);
@@ -86,7 +87,7 @@ window.onload=function () {
 		// console.log(selected.length);
 		// truthTable = check(column,row,selected);
 		if (getLeft() !=0 && isPlayer && isAI) {
-			computer(current);
+			computer2(current,selected);
 		}
 		if (getLeft() !=0 && !isPlayer && isAI) {
 			if (aiLevel == 0) {
