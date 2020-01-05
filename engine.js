@@ -32,7 +32,6 @@ if (id) {
 	localStorage.score = localStorage.score==undefined?0:Number(localStorage.score);
 	if( Number(localStorage.score) <sc2 ){
 			document.getElementById("highest").innerHTML = sc2;
-			localStorage.score = Number(sc2);
 	}
 
 	if (getLeft() == 0) {
@@ -40,6 +39,7 @@ if (id) {
 		let msg = player1>player2?"ONE":"TWO";
 		let sc = player1>player2?player1:player2;
 		if( Number(localStorage.score) <sc ){
+			localStorage.score = Number(sc);
 			alert(`HIGHEST SCORE! ${sc}`);
 		}
 		if (!isDraw) {
