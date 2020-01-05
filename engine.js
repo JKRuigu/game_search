@@ -83,13 +83,21 @@ computer3 = current=>{
 window.onload=function () {
 	var myT = setInterval(()=>{
 		truthTable3[getNumber(current)] = false;
-		if (getLeft() !=0 && isPlayer && isAI) {
-			// computer(current);
-			// computer2(current,truthTable,truthTable2);
-			computer3(current);
-		}
+		// if (getLeft() !=0 && isPlayer && isAI) {
+		// 	// computer(current);
+		// 	// computer2(current,truthTable,truthTable2);
+		// 	computer3(current);
+		// }
 		if (getLeft() !=0 && !isPlayer && isAI) {
-			computer3(current);
+			if (aiLevel == 0) {
+				computer3(current);
+			}else if (aiLevel == 1) {
+				computer2(current);
+			}else if (aiLevel == 2) {
+				computer(current);
+			}else{
+				computer(current);
+			}
 		}
 		if (isError) {
 			console.log("clearInterval");

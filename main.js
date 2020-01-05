@@ -14,7 +14,8 @@ var left = column*row-1;
 var lastPos;
 var coin = document.getElementById('coin');
 var mariodie = document.getElementById('mariodie');
-var isAI = true;
+var isAI = false;
+var aiLevel = 0;
 var isSound = false;
 var isError = false;
 
@@ -34,9 +35,14 @@ function fX() {
 fX();
 
 function toggle() {
-	isAI = !isAI;
-	toggleBtn(isAI);
-	document.getElementById("switch").innerHTML =isAI?"COMPUTER":"HUMAN";
+	if (isAI == true && aiLevel != 2) {
+		aiLevel++;
+	}else{
+		aiLevel = 0;
+		isAI = !isAI;
+		toggleBtn(isAI);		
+	}
+	document.getElementById("switch").innerHTML =isAI?`COMPUTER ${aiLevel}`:"HUMAN";
 }
 
 function sound() {

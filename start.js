@@ -1,4 +1,8 @@
 initialize = (current,row,column,values=[],ids=[],truthTable=[])=>{
+
+	document.getElementById("switch").innerHTML =isAI?`COMPUTER ${aiLevel}`:"HUMAN";
+	toggleBtn(isAI);
+	
 	let num = [1,2,3,4,5,6,7];
 
 	function shuffleWords(list) {
