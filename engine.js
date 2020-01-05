@@ -1,12 +1,6 @@
 // GAME CONTROLLER;
 play = id =>{
 	let value = document.getElementById(id).innerHTML;
-	// console.log(id,value,player1,player2);
-	if (player1 <0) {
-		isError = true;
-	}
-		// console.log(player1.Attr,window.isNaN("player1"))
-
 	isPlayer?player1+=Number(value):player2+=Number(value);
 	truthTable[getNumber(id)] = false;
 	let player = isPlayer?"player1":"player2";
@@ -46,8 +40,6 @@ play = id =>{
 		let sc = player1>player2?player1:player2;
 		if( Number(localStorage.score) <sc ){
 			alert(`HIGHEST SCORE! ${sc}`);
-			// document.getElementById("highest").innerHTML = sc;
-			// localStorage.score = Number(sc);
 		}
 		if (!isDraw) {
 			isSound?mariodie.play():"";
@@ -55,8 +47,6 @@ play = id =>{
 		}else{
 			alert(`GAME ENDED AS DRAW`);			
 		}
-		// initialize(current,row,column,values,ids,truthTable);
-		// fX();
 	}
 	isPlayer=!isPlayer;
 }
@@ -87,15 +77,14 @@ computer3 = current=>{
 
 window.onload=function () {
 	var myT = setInterval(()=>{
-		// console.log(getLeft(),isError,current);
 		truthTable3[getNumber(current)] = false;
-		if (getLeft() !=0 && !isPlayer && isAI) {
-			computer(current);
-			// computer2(current,truthTable,truthTable2);
-		}
 		if (getLeft() !=0 && isPlayer && isAI) {
+			// computer(current);
+			// computer2(current,truthTable,truthTable2);
 			computer3(current);
 		}
+		// if (getLeft() !=0 && isPlayer && isAI) {
+		// }
 		if (isError) {
 			console.log("clearInterval");
 			clearInterval(myT);
