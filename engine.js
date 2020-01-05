@@ -66,15 +66,24 @@ computer = current =>{
 
 computer2 = (current,truthTable,truthTable2) =>{
 	console.log("A1");
-	play(ids[getChoice(current,truthTable,truthTable2)]);
+	let id = ids[getChoice(current,truthTable,truthTable2)];
+	if (id) {
+		play(id);
+	}else{
+		isError = true;
+	}
 }
 
 
 window.onload=function () {
-	setInterval(()=>{
-		console.log(getLeft())
+	var myT = setInterval(()=>{
+		console.log(getLeft(),isError);
 		if (getLeft() !=0 && !isPlayer && isAI) {
 			computer2(current,truthTable,truthTable2);
+		}
+		if (isError) {
+			console.log("clearInterval");
+			clearInterval(myT);
 		}
 	},2000);
 }

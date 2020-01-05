@@ -16,6 +16,7 @@ var coin = document.getElementById('coin');
 var mariodie = document.getElementById('mariodie');
 var isAI = true;
 var isSound = false;
+var isError = false;
 
 initialize(current,row,column,values,ids,truthTable);
 
