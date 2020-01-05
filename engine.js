@@ -1,5 +1,6 @@
 // GAME CONTROLLER;
 play = id =>{
+if (id) {
 	let value = document.getElementById(id).innerHTML;
 	isPlayer?player1+=Number(value):player2+=Number(value);
 	truthTable[getNumber(id)] = false;
@@ -49,6 +50,10 @@ play = id =>{
 		}
 	}
 	isPlayer=!isPlayer;
+}else{
+	console.log("ERROR .....",aiRandom(current));
+	isError = true;
+}
 }
 
 computer = current =>{
@@ -83,11 +88,12 @@ window.onload=function () {
 			// computer2(current,truthTable,truthTable2);
 			computer3(current);
 		}
-		// if (getLeft() !=0 && isPlayer && isAI) {
-		// }
+		if (getLeft() !=0 && !isPlayer && isAI) {
+			computer3(current);
+		}
 		if (isError) {
 			console.log("clearInterval");
 			clearInterval(myT);
 		}
-	},2000);
+	},500);
 }
