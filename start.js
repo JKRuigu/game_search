@@ -28,6 +28,7 @@ initialize = (current,row,column,values=[],ids=[],truthTable=[])=>{
 		for (var j = 0; j < row; j++) {
 			truthTable.push(true);
 			truthTable2.push(true);
+			truthTable3.push(true);
 		}		
 	}
 

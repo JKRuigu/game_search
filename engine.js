@@ -4,6 +4,7 @@ play = id =>{
 
 	isPlayer?player1+=Number(value):player2+=Number(value);
 	truthTable[getNumber(id)] = false;
+	truthTable3[getNumber(id)] = false;
 	let player = isPlayer?"player1":"player2";
 	if (lastPos) {
 		addClass3(current)
@@ -54,19 +55,8 @@ play = id =>{
 		// fX();
 	}
 	isPlayer=!isPlayer;
-	if (getLeft() !=0 && !isPlayer && isAI) {
-		computer(current);
-	}
-
-	if (getLeft() !=0 && isPlayer) {
-		computer2(current);
-	}
 }
 
-window.onload=function () {
-	console.log("A1");
-	play(ids[getChoice(current,truthTable,truthTable2)]);
-}
 computer = current =>{
 		let tempId = getMax(current,truthTable);
 		console.log("A0");
@@ -74,7 +64,17 @@ computer = current =>{
 		play(tempId);
 }
 
-computer2 = current =>{
+computer2 = (current,truthTable,truthTable2) =>{
 	console.log("A1");
 	play(ids[getChoice(current,truthTable,truthTable2)]);
+}
+
+
+window.onload=function () {
+	setInterval(()=>{
+		console.log(getLeft())
+		if (getLeft() !=0 && !isPlayer && isAI) {
+			computer2(current,truthTable,truthTable2);
+		}
+	},2000);
 }

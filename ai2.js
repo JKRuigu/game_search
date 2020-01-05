@@ -48,13 +48,17 @@ function getBest(current,truthTable2) {
 }
 
 getChoice = (current,truthTable,truthTable2)=>{
+
+	truthTable2 = truthTable3;
+	truthTable = truthTable3;
+
 	let maxCol2 = getMaxColumn(current,truthTable);
 	let maxRow2 = getMaxRow(current,truthTable);
 
 	// console.log("COLUMN");
 	let r2 = getBest(maxCol2,truthTable2);
 	// console.log(r2);
-	truthTable2 = truthTable;
+	truthTable2 = truthTable3;
 	// console.log("ROW");
 	let r3 = getBest(maxRow2,truthTable2);
 	// console.log(r3);
