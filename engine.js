@@ -29,6 +29,7 @@ play = id =>{
 	}
 
 	let sc2 = player1>player2?player1:player2;
+	localStorage.score = localStorage.score==undefined?0:Number(localStorage.score);
 	if( Number(localStorage.score) <sc2 ){
 			document.getElementById("highest").innerHTML = sc2;
 			localStorage.score = Number(sc2);
@@ -38,11 +39,10 @@ play = id =>{
 		let isDraw = player1 == player2? true:false;
 		let msg = player1>player2?"ONE":"TWO";
 		let sc = player1>player2?player1:player2;
-		localStorage.score = localStorage.score==undefined?0:Number(localStorage.score);
 		if( Number(localStorage.score) <sc ){
 			alert(`HIGHEST SCORE! ${sc}`);
-			document.getElementById("highest").innerHTML = sc;
-			localStorage.score = Number(sc);
+			// document.getElementById("highest").innerHTML = sc;
+			// localStorage.score = Number(sc);
 		}
 		if (!isDraw) {
 			isSound?mariodie.play():"";
