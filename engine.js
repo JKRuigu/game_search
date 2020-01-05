@@ -80,21 +80,25 @@ computer2 = (current,truthTable,truthTable2) =>{
 	}
 }
 
+computer3 = current=>{
+	let id = ids[aiRandom(current)];
+	play(id);
+}
 
-// window.onload=function () {
-// 	var myT = setInterval(()=>{
-// 		// console.log(getLeft(),isError,current);
-// 		truthTable3[getNumber(current)] = false;
-// 		if (getLeft() !=0 && !isPlayer && isAI) {
-// 			computer(current);
-// 			// computer2(current,truthTable,truthTable2);
-// 		}
-// 		if (getLeft() !=0 && isPlayer && isAI) {
-// 			computer(current);
-// 		}
-// 		if (isError) {
-// 			console.log("clearInterval");
-// 			clearInterval(myT);
-// 		}
-// 	},2000);
-// }
+window.onload=function () {
+	var myT = setInterval(()=>{
+		// console.log(getLeft(),isError,current);
+		truthTable3[getNumber(current)] = false;
+		if (getLeft() !=0 && !isPlayer && isAI) {
+			computer(current);
+			// computer2(current,truthTable,truthTable2);
+		}
+		if (getLeft() !=0 && isPlayer && isAI) {
+			computer3(current);
+		}
+		if (isError) {
+			console.log("clearInterval");
+			clearInterval(myT);
+		}
+	},2000);
+}

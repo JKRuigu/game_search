@@ -112,33 +112,33 @@ getLeft2 = table =>{
 	}
 	return n;
 }
-let ix = getChoice(current,truthTable,truthTable2);
-truthTable2 = [];
-truthTable2 = truthTable;
-truthTable[ix] = false;
-truthTable2[ix] = false;
-truthTable3[ix] = false;
+// let ix = getChoice(current,truthTable,truthTable2);
+// truthTable2 = [];
+// truthTable2 = truthTable;
+// truthTable[ix] = false;
+// truthTable2[ix] = false;
+// truthTable3[ix] = false;
 
-console.log(getLeft2(truthTable),getLeft2(truthTable2),getLeft2(truthTable3));
+// console.log(getLeft2(truthTable),getLeft2(truthTable2),getLeft2(truthTable3));
 
-let ix2 = getChoice(current,truthTable,truthTable2);
-truthTable2 = [];
-truthTable = [];
-truthTable2 = truthTable3;
-truthTable = truthTable3;
-truthTable[ix2] = false;
-truthTable2[ix2] = false;
-truthTable3[ix2] = false;
+// let ix2 = getChoice(current,truthTable,truthTable2);
+// truthTable2 = [];
+// truthTable = [];
+// truthTable2 = truthTable3;
+// truthTable = truthTable3;
+// truthTable[ix2] = false;
+// truthTable2[ix2] = false;
+// truthTable3[ix2] = false;
 
-console.log(getLeft2(truthTable),getLeft2(truthTable2),getLeft2(truthTable3));
+// console.log(getLeft2(truthTable),getLeft2(truthTable2),getLeft2(truthTable3));
 
-let ix3 = getChoice(current,truthTable,truthTable2);
-truthTable2 = [];
-truthTable = [];
-truthTable2 = truthTable3;
-truthTable = truthTable3;
-truthTable[ix3] = false;
-truthTable2[ix3] = false;
-truthTable3[ix3] = false;
+// let ix3 = getChoice(current,truthTable,truthTable2);
+// truthTable2 = [];
+// truthTable = [];
+// truthTable2 = truthTable3;
+// truthTable = truthTable3;
+// truthTable[ix3] = false;
+// truthTable2[ix3] = false;
+// truthTable3[ix3] = false;
 
-console.log(getLeft2(truthTable),getLeft2(truthTable2),getLeft2(truthTable3));
+// console.log(getLeft2(truthTable),getLeft2(truthTable2),getLeft2(truthTable3));
