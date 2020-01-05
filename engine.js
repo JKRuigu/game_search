@@ -69,7 +69,6 @@ computer = current =>{
 computer2 = (current,selected) =>{
 	console.log("A1");
 	let id = ids[getChoice(current,selected,row,column)];
-	console.log(id);
 	if (id) {
 		play(id);
 	}else{
@@ -84,7 +83,7 @@ computer3 = current=>{
 
 window.onload=function () {
 	var myT = setInterval(()=>{
-		console.log(selected.length);
+		// console.log(selected.length);
 		// truthTable = check(column,row,selected);
 		if (getLeft() !=0 && isPlayer && isAI) {
 			computer(current);
@@ -99,6 +98,9 @@ window.onload=function () {
 			}else{
 				computer2(current,selected);
 			}
+		}
+		if (getLeft() ==0) {
+			clearInterval(myT);			
 		}
 		if (isError) {
 			console.log("clearInterval");

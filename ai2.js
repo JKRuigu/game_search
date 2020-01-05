@@ -122,6 +122,3 @@ check = (column,row,selected)=>{
 	return table;
 }
 truthTable = check(column,row,selected);
-
-console.log(getChoice(current,selected,row,column));
-console.log(getLeft2(truthTable));
