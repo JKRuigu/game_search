@@ -92,11 +92,11 @@ window.onload=function () {
 			if (aiLevel == 0) {
 				computer3(current);
 			}else if (aiLevel == 1) {
-				computer2(current);
+				computer(current);
 			}else if (aiLevel == 2) {
 				computer(current);
 			}else{
-				computer(current);
+				computer3(current);
 			}
 		}
 		if (isError) {
