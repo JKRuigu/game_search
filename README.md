@@ -13,4 +13,8 @@ Gameplay continues until all numbers have been crossed out, and the highest poin
 **JK Ruigu**
 *twitter* @jkruigu
 
-**Inspired by MAJOR PEP# game_search
+**Inspired by MAJOR Prop# game_search
+
+## Support  
+- **Buy Me a cup of coffee** [link](https://buymeacoff.ee/UOoP6At7H) 
+- **CHECK IT OUT** [link](https://kind-bassi-e0ea37.netlify.com)
