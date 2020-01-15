@@ -1,4 +1,5 @@
 # GAME SEARCH FOR MULTIPLAYER GAME
+![Image](./003.png)
 
 The game Maxim is a two-player game where both players have a score that starts at 0. It uses a grid with numbers and a marked starting point.
 
