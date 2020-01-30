@@ -49,8 +49,10 @@ if (id) {
 		if (!isDraw) {
 			isSound?mariodie.play():"";
 			alert(`PLAYER ${msg} WON`);
+			window.location.reload();
 		}else{
-			alert(`GAME ENDED AS DRAW`);			
+			alert(`GAME ENDED AS DRAW`);
+			window.location.reload();			
 		}
 	}
 	isPlayer=!isPlayer;
