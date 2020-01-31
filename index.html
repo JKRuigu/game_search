@@ -3,81 +3,27 @@
 <head>
 	<title>GAME SEARCH</title>
 </head>
- 	<style>
-     	section{
-     		flex-direction: column;
-     	}
-     	button {
-	        border-radius: 5px;
-	        background: #8AC007;
-	        padding: 20px;
-	        min-height: 70px;
-	        min-width: 70px;
-      	}
-
-      	.current{
-      		border:solid 4px #f10a0a;
-      	}
-      	.player1{
-      		/*border:solid 2px #fff;*/
-      		border-radius: 5px;
-	        background:#0744c0;
-	        padding: 20px;
-	        color: #fff;		
-      	}
-      	.player2{
-      		border-radius: 5px;
-	        background:#c09407;
-	        padding: 20px;
-	        color: #fff;		
-      	}
-      	.current2{
-      		border: solid 1px #fff;
-      	}
-      	#main{
-      		margin-top: -270px; 
-      		flex-direction: row;  
-      	}
-      	#container{
-      		margin-left: 550px;
-      		/*display: inline-flex;*/
-      		border: solid 1px #c09407;
-      		padding: 2px;
-      		max-width: 430px;
-      	}
-      	#player{
-      		font-size: 25px;
-      	}
-      	.human{
-      		background: blue;	
-      	}
-      	.computer{
-      		background: #00bcd4;
-      	}
-      	.soundOn{
-      		background: orange;
-      	}
-      	.soundOff{
-      		background: red;
-      	}
-
-
-    </style>
+ 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 <body>
 <section>
 		<audio id="coin" src="./assets/audio/coin.wav" class="hide"></audio>
 		<audio id="mariodie" src="./assets/audio/mariodie.wav" class="hide"></audio>
 		<div id="container">
-			<p id="player">PLAYER 1
+			<p><span id="player">PLAYER 1</span><span class="ply2" id="player">PLAYER 2</span></p>
+			<p id="score">
 				<span id="score">SCORE <span id="player1">0</span></span>	
+				<span class="ply2" id="score">SCORE <span id="player2">0</span></span>
 			</p>
-			<p id="player">PLAYER 2
-				<span id="score">SCORE <span id="player2">0</span></span>
+			<p>
+				<button id="switch" class="player1" onclick="toggle()">HUMAN</button>		
+				<button class="ply2 player2" id="switch2" class="computer" onclick="toggle2()">COMPUTER</button>
 			</p>
-			<p>HIGHEST SCORE <span id="highest">0</span></p>		
-			<p>Left <span id="left">0</span></p>
-			<button id="switch" class="computer" onclick="toggle()">COMPUTER</button>		
-			<button id="sound" class="soundOff" onclick="sound()">SOUND OFF</button>		
+			<p>
+				<button  id="sound" class="soundOff" onclick="sound()">SOUND OFF</button>
+				<p class="ply3" id="hs">HIGHEST SCORE <span id="highest">0</span></p>		
+				<p class="ply3" id="lft">Left <span id="left">0</span></p>				
+			</p>
+					
 		</div>
 	<div id="main">
 		<p>
