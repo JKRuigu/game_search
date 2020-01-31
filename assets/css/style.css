@@ -1,0 +1,70 @@
+section{
+     		flex-direction: column;
+     	}
+     	button {
+	        border-radius: 5px;
+	        background: #8AC007;
+	        padding: 20px;
+	        min-height: 70px;
+	        min-width: 70px;
+      	}
+
+      	.current{
+      		border:solid 4px #f10a0a;
+      	}
+      	.player1{
+      		/*border:solid 2px #fff;*/
+      		border-radius: 5px;
+	        background:#0744c0;
+	        padding: 20px;
+	        color: #fff;		
+      	}
+      	.player2{
+      		border-radius: 5px;
+	        background:#c09407;
+	        padding: 20px;
+	        color: #fff;		
+      	}
+      	.current2{
+      		border: solid 1px #fff;
+      	}
+      	#main{
+      		margin-top: -270px; 
+      		flex-direction: row;  
+      	}
+      	#container{
+      		margin-left: 550px;
+      		/*display: inline-flex;*/
+      		border: solid 1px #c09407;
+      		padding: 2px;
+      		max-width: 430px;
+      	}
+      	#player{
+      		font-size: 25px;
+      	}
+      	.human{
+      		background: blue;	
+      	}
+      	.computer{
+      		background: #00bcd4;
+      	}
+      	.soundOn{
+      		background: orange;
+      	}
+      	.soundOff{
+      		background: red;
+      	}
+      	.ply2{
+      		float: right;
+      	}
+      	.ply3{
+      		float: right;
+      		margin: 3px;
+      		padding: 5px;
+      	}
+      	#hs{
+      		margin-top: -70px;
+      	}
+      	#lft{
+      		margin-top: -50px;
+      	}
