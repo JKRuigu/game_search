@@ -106,21 +106,34 @@ getChoice = (current,selected,row,column) =>{
 	let diff = r[0]-r[1];
 	let diff2 = r2[0]-r2[1];
 	
-	// console.log(r,diff);
-	// console.log(r2,diff2);
+	console.log(maxCol2,r,diff);
+	console.log(maxRow2,r2,diff2);
 	if (maxCol2 == undefined || maxRow2 == undefined) {
+		if (getNumber(getMax(current,truthTable))) {
+			return getNumber(getMax(current,truthTable));
+		};
 		truthTable = check(column,row,selected);
+		console.log("undefined")
 		for (var i = 0; i < truthTable.length; i++) {
 			if (truthTable[i]) {
 				return i;
 			}
 		}
 	}
+
 	if (diff>diff2) {
 		console.log("COL",values[maxCol2]);
+		if (maxCol2 == NaN) {
+			truthTable = check(column,row,selected);
+			return getNumber(getMax(current,truthTable));
+		}
 		return maxCol2;
 	}else{
 		console.log("ROW",values[maxRow2]);
+		if (maxRow2 == NaN) {
+			truthTable = check(column,row,selected);
+			return getNumber(getMax(current,truthTable));
+		}
 		return maxRow2;
 	}
 	
