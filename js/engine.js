@@ -44,6 +44,9 @@ if (id) {
 		let sc = player1>player2?player1:player2;
 		if( Number(localStorage.score) <sc ){
 			localStorage.score = Number(sc);
+			let p1 = isAI?`COMPUTER ${aiLevel}`:"HUMAN";
+			let p2 = isAI2?`COMPUTER ${aiLevel2}`:"HUMAN";
+			localStorage.gameDetails = `${p1} vs ${p2} ${player1}:${player2}`;
 			alert(`HIGHEST SCORE! ${sc}`);
 		}
 		if (!isDraw) {
@@ -119,5 +122,5 @@ window.onload=function () {
 			console.log("clearInterval");
 			clearInterval(myT);
 		}
-	},100);
+	},1000);
 }
