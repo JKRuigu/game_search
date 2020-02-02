@@ -87,18 +87,14 @@ computer3 = current=>{
 
 window.onload=function () {
 	var myT = setInterval(()=>{
-		// console.log(selected.length);
-		// truthTable = check(column,row,selected);
-		// if (getLeft() !=0 && isPlayer && isAI) {
-		// 	computer2(current,selected);
-		// }
+
 		if (getLeft() !=0 && isPlayer && isAI) {
 			if (aiLevel == 0) {
 				computer(current,selected);
 			}else if (aiLevel == 1) {
 				computer2(current,selected);
 			}else if (aiLevel == 2) {
-				computer3(current,selected);
+				computer3(current);
 			}else{
 				computer(current,selected);
 			}
@@ -110,7 +106,7 @@ window.onload=function () {
 			}else if (aiLevel2 == 1) {
 				computer2(current,selected);
 			}else if (aiLevel2 == 2) {
-				computer3(current,selected);
+				computer3(current);
 			}else{
 				computer(current,selected);
 			}
@@ -123,5 +119,5 @@ window.onload=function () {
 			console.log("clearInterval");
 			clearInterval(myT);
 		}
-	},1000);
+	},100);
 }
